@@ -1,20 +1,20 @@
+<script setup lang="ts">
+const { data: episode, status, refresh, error } = useLazyFetch('https://rickandmortyapi.com/api/episode/24')
+</script>
+
 <template>
   <div>
-    <p v-if="fetchState.pending">
+    <p v-if="status === 'pending'">
       loading...
     </p>
-    <p v-else>
+    <p v-if="status === 'error'">
+      Uh-oh, something happened!
+      {{error}}
+    </p>
+    <p v-if="status === 'success'">
       The episode is <strong>{{ episode.name }}</strong>
     </p>
+
+    <button @click="refresh"> Refetch me </button>
   </div>
 </template>
-
-<script setup lang="ts">
-import { ref, useFetch } from '@nuxtjs/composition-api'
-
-const episode = ref('')
-const { fetchState } = useFetch(async () => {
-  const response = await fetch('https://rickandmortyapi.com/api/episode/24')
-  episode.value = await response.json()
-})
-</script>

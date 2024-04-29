@@ -7,6 +7,12 @@ export default defineNuxtConfig({
     typescript: true,
     meta: true,
   },
-  ssr: false
+  ssr: false,
+  build: {
+    transpile: ['@tanstack/vue-query'],
+  },
+  plugins: [
+    '~/plugins/vue-query.ts',
+  ]
 
 })

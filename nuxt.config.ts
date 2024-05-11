@@ -7,6 +7,9 @@ export default defineNuxtConfig({
     typescript: true,
     meta: true,
   },
+  modules: [
+    '@nuxtjs/tailwindcss'
+  ],
   ssr: false,
   build: {
     transpile: ['@tanstack/vue-query'],

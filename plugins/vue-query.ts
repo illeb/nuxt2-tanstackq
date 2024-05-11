@@ -3,9 +3,7 @@ import { hydrate, QueryClient, VueQueryPlugin } from '@tanstack/vue-query'
 
 export default defineNuxtPlugin(nuxtApp => {
   // Modify your Vue Query global settings here
-  const queryClient = new QueryClient({
-
-  })
+  const queryClient = new QueryClient()
 
   Vue.use(VueQueryPlugin, {
     queryClient

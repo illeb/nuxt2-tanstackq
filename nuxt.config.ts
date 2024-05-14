@@ -8,7 +8,9 @@ export default defineNuxtConfig({
     meta: true,
   },
   modules: [
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/toast',
+    '@nuxt/http'
   ],
   ssr: false,
   build: {
